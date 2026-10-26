@@ -213,23 +213,5 @@ uvicorn src.api.app:app --host 127.0.0.1 --port 8000 --reload
 ```
 Interactive OpenAPI documentation is available at `http://127.0.0.1:8000/docs`.
 
----
 
-## 7. Interview Technical Defense & FAQ
 
-### Q1: How do you extract Grad-CAM from a Vision Transformer?
-> In standard CNNs, Grad-CAM operates on 2D feature maps. In a Vision Transformer (ViT), spatial feature maps are replaced by a 1D sequence of 196 patch tokens ($14 \times 14$). We extract the attention weights from the final Multi-Head Self-Attention (MHSA) block, compute gradients of the manipulation logit with respect to the attention heads, calculate a head-averaged weighted sum, reshape the 1D token vector back into a 2D $14 \times 14$ spatial matrix, and bilinearly interpolate it back to the original $224 \times 224$ facial resolution.
-
-### Q2: Why did you choose Whisper for audio speech representations?
-> Whisper was selected because its encoder produces robust temporal acoustic-phonetic representations that remain invariant to diverse accents, background noise, and varying recording conditions. Furthermore, Whisper generates word-level timestamps, allowing the semantic branch to temporally align spoken atomic claims with video timeframes.
-
-### Q3: How do you prevent LLMs from hallucinating in the verification branch?
-> The LLM is **never allowed to make classification decisions**. Classification is performed deterministically by the NLI Cross-Encoder (`cross-encoder/nli-deberta-v3-small`) computing entailment, neutral, and contradiction probabilities against indexed, verified ground-truth articles from Snopes, Reuters, and ClaimsKG. If an assertion is absent from the knowledge base, it is marked as `UNVERIFIED` rather than hallucinating facts.
-
----
-
-## 8. Author & Contact
-* **Author:** Praveen Kumar Chilukuri
-* **Email:** praveenkumar.cq@gmail.com
-* **Degree:** M.Sc. Artificial Intelligence, BTU Cottbus-Senftenberg, Germany
-* **Target Role:** Student Assistant (m/f/d) — Speech & Language Technology (SLT), DFKI Berlin
