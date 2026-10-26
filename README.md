@@ -7,11 +7,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-ff4b4b.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-> **Research & Engineering Initiative**  
-> **Candidate:** Praveen Kumar Chilukuri (M.Sc. AI, BTU Cottbus-Senftenberg)  
-> **Target Department:** Speech & Language Technology (SLT), DFKI Berlin  
 
----
 
 ## 1. Executive Summary & Core Motivation
 
