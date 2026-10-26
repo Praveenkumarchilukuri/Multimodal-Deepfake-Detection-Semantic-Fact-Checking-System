@@ -1,0 +1,66 @@
+# ==============================================================================
+# Configuration: Multimodal Deepfake Detection & Semantic Fact-Checking System
+# Target Role: Student Assistant - Speech & Language Technology (DFKI Berlin)
+# ==============================================================================
+
+system:
+  device: "auto"              # Options: "auto", "cuda", "cpu"
+  random_seed: 42
+  log_level: "INFO"
+
+ingestion:
+  sample_fps: 2               # Extract 2 frames per second for video analysis
+  face_crop_size: [224, 224]  # Expected input size for Vision Transformer
+  audio_sample_rate: 16000    # OpenAI Whisper standard 16kHz mono
+  max_video_duration_sec: 120 # Cap input processing to prevent memory overflow
+
+visual_branch:
+  backbone: "google/vit-base-patch16-224"
+  num_classes: 2              # 0: Authentic, 1: Manipulated
+  patch_size: 16
+  batch_size: 8
+  deepfake_threshold: 0.50
+  high_confidence_thresh: 0.85
+  clean_face_thresh: 0.15
+
+semantic_branch:
+  whisper_model: "tiny"       # Options: "tiny", "base", "small"
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  nli_model: "cross-encoder/nli-deberta-v3-small"
+  top_k_evidence: 3
+  max_atomic_claims: 5
+  high_inconsistency_thresh: 0.80
+  low_inconsistency_thresh: 0.20
+  local_vector_db_path: "data/knowledge_base/faiss_index.bin"
+  knowledge_corpus_path: "data/knowledge_base/fact_checks_corpus.json"
+
+fusion_adjudication:
+  # Non-linear adaptive confidence gating formula:
+  # S_final = σ( α(C_vis)·S_vis + β(C_sem)·S_sem + γ·(S_vis ⊙ S_sem) )
+  alpha_base: 0.50
+  beta_base: 0.40
+  gamma_cross: 0.20
+  sigmoid_temperature: 1.0
+  decision_rules:
+    case_1_visual_deepfake:
+      s_vis_min: 0.70
+      s_sem_max: 0.35
+      label: "Visual Deepfake Alert"
+      narrative: "Pixel-level manipulation detected on facial region while speech claims appear factually grounded."
+    case_2_cheapfake:
+      s_vis_max: 0.30
+      s_sem_min: 0.70
+      label: "Misinformation Alert / Cheapfake"
+      narrative: "Visual footage appears genuine, but spoken claims strongly contradict verified real-world ground truth."
+    case_3_composite_forgery:
+      s_vis_min: 0.60
+      s_sem_min: 0.60
+      label: "Composite Deepfake & Misinformation"
+      narrative: "Critical Alert: Both facial synthesis artifacts and false factual assertions detected."
+    case_4_authentic:
+      label: "Verified Authentic Media"
+      narrative: "No significant facial synthesis artifacts detected and claims align with reference knowledge bases."
+
+server:
+  host: "127.0.0.1"
+  port: 8000

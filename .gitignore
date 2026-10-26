@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest cache
+.pytest_cache/
+
+# Model checkpoints & cache
+*.pt
+*.pth
+*.bin
+huggingface/
+.cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Media files & outputs
+*.mp4
+*.avi
+*.wav
+!data/samples/*
+
+# IDEs
+.vscode/
+.idea/
+*.swp

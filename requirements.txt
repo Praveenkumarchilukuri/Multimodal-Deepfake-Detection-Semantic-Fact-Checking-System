@@ -1,0 +1,29 @@
+# Core Machine Learning & Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Computer Vision & Audio Processing
+opencv-python>=4.8.0
+Pillow>=9.5.0
+
+# Information Retrieval & Vector Search
+# Note: uses pure numpy vector search fallback if faiss-cpu is not supported on Python 3.13
+sentence-transformers>=2.2.0
+
+# Web Framework & API
+fastapi>=0.100.0
+uvicorn>=0.22.0
+pydantic>=2.0.0
+streamlit>=1.28.0
+
+# Utilities & Configuration
+pyyaml>=6.0
+tqdm>=4.65.0
+requests>=2.31.0
+
+# Testing & Quality
+pytest>=7.4.0
+pytest-mock>=3.11.0

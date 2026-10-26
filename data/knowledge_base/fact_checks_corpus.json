@@ -1,0 +1,66 @@
+[
+  {
+    "id": "claim_001",
+    "claim": "Volodymyr Zelensky announced Ukraine's surrender to Russian forces in March 2022.",
+    "verdict": "FALSE",
+    "source": "Reuters Fact Check / Snopes",
+    "reference_evidence": "A viral March 2022 video depicting Ukrainian President Volodymyr Zelensky telling Ukrainian soldiers to lay down their weapons was a debunked deepfake. Ukrainian authorities and major news agencies confirmed Zelensky never issued any surrender order.",
+    "category": "cheapfake_and_deepfake"
+  },
+  {
+    "id": "claim_002",
+    "claim": "The Eiffel Tower was struck by lightning and completely burned down in Paris.",
+    "verdict": "FALSE",
+    "source": "AP News / Snopes",
+    "reference_evidence": "Images showing the Eiffel Tower engulfed in catastrophic fire in Paris were AI-generated synthetic images created using Midjourney. The Eiffel Tower remains intact and suffered no fire damage.",
+    "category": "generative_misinformation"
+  },
+  {
+    "id": "claim_003",
+    "claim": "The European Central Bank is headquartered in Frankfurt am Main, Germany.",
+    "verdict": "TRUE",
+    "source": "Wikipedia / European Union Archives",
+    "reference_evidence": "The European Central Bank (ECB) is the central bank of the European Union member states which use the euro. Its headquarters is located in Frankfurt am Main, Germany.",
+    "category": "geopolitical_fact"
+  },
+  {
+    "id": "claim_004",
+    "claim": "German Research Center for Artificial Intelligence (DFKI) has a research laboratory in Berlin focused on Speech and Language Technology.",
+    "verdict": "TRUE",
+    "source": "DFKI Official Documentation",
+    "reference_evidence": "DFKI Berlin operates research departments in Speech and Language Technology (SLT), Educational Technology, Cognitive Assistants, and Interactive Machine Learning, contributing to state-of-the-art AI transfer.",
+    "category": "institutional_fact"
+  },
+  {
+    "id": "claim_005",
+    "claim": "The Pope was photographed walking through Rome wearing a stylish white puffer jacket.",
+    "verdict": "FALSE",
+    "source": "Reuters / BBC Reality Check",
+    "reference_evidence": "The viral image of Pope Francis wearing an oversized Balenciaga-style white puffer jacket was generated using Midjourney v5 by a Chicago construction worker. It is an AI-generated synthetic image.",
+    "category": "synthetic_imagery"
+  },
+  {
+    "id": "claim_006",
+    "claim": "FaceForensics++ is a benchmark dataset for facial manipulation detection containing Deepfakes, Face2Face, FaceSwap, and NeuralTextures.",
+    "verdict": "TRUE",
+    "source": "Rössler et al., ICCV 2019",
+    "reference_evidence": "FaceForensics++ is a large-scale forensic video dataset with 1,000 pristine sequences and automated manipulation methods across raw, c20, and c40 compression levels.",
+    "category": "forensics_benchmark"
+  },
+  {
+    "id": "claim_007",
+    "claim": "The United Nations declared that global warming has officially ended.",
+    "verdict": "FALSE",
+    "source": "UN Climate Reports / Snopes",
+    "reference_evidence": "The United Nations and IPCC continue to warn of accelerating climate impacts. No statement claiming global warming has ended was ever released.",
+    "category": "scientific_consensus"
+  },
+  {
+    "id": "claim_008",
+    "claim": "Vision Transformers partition an input image into fixed-size non-overlapping patches before linear projection.",
+    "verdict": "TRUE",
+    "source": "Dosovitskiy et al., ICLR 2021",
+    "reference_evidence": "In Vision Transformer (ViT), a 2D image of resolution HxW is reshaped into a sequence of flattened 2D patches of size PxP, followed by linear projection to patch embeddings and positional encodings.",
+    "category": "deep_learning_theory"
+  }
+]
